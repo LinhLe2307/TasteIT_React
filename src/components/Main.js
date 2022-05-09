@@ -1,8 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from "react-router-dom"
-
-import Button from './Button'
-import CardInfo from './CardInfo'
+import { Outlet } from "react-router-dom"
 
 const Main = () => {
     return (
