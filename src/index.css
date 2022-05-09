@@ -39,3 +39,16 @@ header {
   border: 1px solid black;
   padding: 1rem;
 }
+
+.recipes-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.recipes-card {
+  border: 1px solid black
+}
+
+.recipes-card img {
+  width: 30rem;
+}
