@@ -1,6 +1,9 @@
 import { React, useState } from 'react';
 import axios from 'axios';
 
+import Button from "./Button";
+import AddIngredients from './AddIngredients';
+
 const AddRecipes = () => {
   const [recipes, setRecipes] = useState({
     name: "",
@@ -11,9 +14,11 @@ const AddRecipes = () => {
     instructions: ""
   });
   const [ingredients, setIngredients] = useState({
-    quantity: "",
-    ingredient: ""
+    quantity: [],
+    ingredient: []
   })
+
+  const [moreIngredients, setMoreIngredients] = useState([{value: null}]);
 
   const inputHandler = (e) => {
     setRecipes(() => ({
@@ -31,9 +36,15 @@ const AddRecipes = () => {
       .post("http://localhost:3010/notes", recipes, ingredients)
       .then(res => console.log("success", res))
       .catch(error => console.log("error", error))
-    
+
     setRecipes("");
     setIngredients("");
+  }
+
+  const addIngredientsHandler = () => {
+    const values = [...moreIngredients];
+    values.push({value: null});
+    setMoreIngredients(values);
   }
 
   return (
@@ -42,34 +53,35 @@ const AddRecipes = () => {
       <form onChange={inputHandler} onSubmit={addSubmitHandler}>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" defaultValue={recipes.name}/>
+          <input type="text" id="name" name="name" defaultValue={recipes.name} />
         </div>
         <div>
           <label htmlFor="author">Author</label>
-          <input type="text" id="author" name="author" defaultValue={recipes.author}/>
+          <input type="text" id="author" name="author" defaultValue={recipes.author} />
         </div>
         <div>
           <label htmlFor="country">Recipe is from</label>
-          <input type="text" id="country" name="country" defaultValue={recipes.country}/>
+          <input type="text" id="country" name="country" defaultValue={recipes.country} />
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <textarea type="text" id="description" name="description" defaultValue={recipes.description}/>
+          <textarea type="text" id="description" name="description" defaultValue={recipes.description} />
         </div>
         <div>
           <label htmlFor="image">Image</label>
-          <input type="text" id="image" name="image" defaultValue={recipes.image}/>
+          <input type="text" id="image" name="image" defaultValue={recipes.image} />
         </div>
         <div>
           <label>Ingredients</label>
-          <label htmlFor="quantity">Quantity</label>
-          <input type="text" id="quantity" name="quantity" defaultValue={ingredients.quantity}/>
-          <label htmlFor="ingredient">Ingredient</label>
-          <input type="text" id="ingredient" name="ingredient" defaultValue={ingredients.ingredient}/>
+          {moreIngredients.map((ingredient, index) => {
+            return <AddIngredients key={`${ingredient
+              } - ${index}`}/>
+          })}
+          <button onClick={addIngredientsHandler}>Add more ingredients</button>
         </div>
         <div>
           <label htmlFor="instructions">Instructions</label>
-          <textarea id="instructions" name="instructions" defaultValue={recipes.instructions}/>
+          <textarea id="instructions" name="instructions" defaultValue={recipes.instructions} />
         </div>
         <button type="submit">SUBMIT</button>
       </form>
