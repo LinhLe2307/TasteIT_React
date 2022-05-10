@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MoreAboutUs = () => {
     return (
-        <div>Helsinki Business College</div>
+        <>
+            <div>Helsinki Business College</div>
+        </>
     )
 }
 
