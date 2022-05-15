@@ -2,8 +2,20 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 
 import AddIngredients from "./AddIngredients";
+import classes from "./AddRecipes.module.css";
 
 const AddRecipes = () => {
+  const [ingredientsValue, setIngredientsValue] = useState(0);
+
+  const [ingredients, setIngredients] = useState([
+    {
+      quantity: "",
+      unit: "",
+      ingredient: "",
+      id: ingredientsValue,
+    },
+  ]);
+
   const [recipes, setRecipes] = useState({
     name: "",
     author: "",
@@ -11,20 +23,8 @@ const AddRecipes = () => {
     description: "",
     image: "",
     instructions: "",
+    ingredients: ingredients,
   });
-  const [ingredients, setIngredients] = useState([
-    {
-      quantity: "",
-      unit: "",
-      ingredient: "",
-    },
-  ]);
-
-  const [ingredientsValue, setIngredientsValue] = useState(0);
-
-  const [moreIngredients, setMoreIngredients] = useState([
-    { value: ingredientsValue },
-  ]);
 
   const [id, setId] = useState();
 
@@ -38,56 +38,52 @@ const AddRecipes = () => {
       [e.target.name]: e.target.value,
     }));
 
-    const values = [...ingredients];
-    const list = values.map((value, i) => {
-      if (i === id)
-        return {
-          ...value,
-          [e.target.name]: e.target.value,
-        };
+    const newIngredients = [...ingredients];
+    const list = newIngredients.map((newIngredient) => {
+      // if (newIngredient.id === id)
+      return {
+        ...newIngredient,
+        [e.target.name]: e.target.value,
+      };
     });
-
     setIngredients(list);
   };
 
   const addSubmitHandler = (event) => {
-    // let data = {
-    //   objects: [recipes, ingredients],
-    // };
     event.preventDefault();
     axios
-      .post("http://localhost:3010/notes", { recipes, ingredients })
+      .post("http://localhost:3010/notes", recipes)
       .then((res) => console.log("success", res))
       .catch((error) => console.log("error", error));
 
     setRecipes("");
-    setIngredients("");
   };
 
   const addIngredientsHandler = () => {
-    const values = [...moreIngredients];
-
     setIngredientsValue((prevState) => prevState + 1);
 
-    ingredientsValue && values.push({ value: ingredientsValue });
-    setMoreIngredients(values);
-
-    const values2 = [...ingredients];
-    console.log(ingredients);
-    values2.push({
-      quantity: "",
-      unit: "",
-      ingredient: "",
-    });
-    setIngredients(values2);
+    const values = [...ingredients];
+    ingredientsValue &&
+      values.push({
+        quantity: "",
+        unit: "",
+        ingredient: "",
+        id: ingredientsValue,
+      });
+    setIngredients(values);
   };
 
   const removeIngredientsHandler = (ingredientId) => {
-    const newIngredients = moreIngredients.filter(
-      (ingredient) => ingredient.value !== ingredientId
+    const values = [...ingredients];
+    const newIngredients = values.filter(
+      (ingredient) => ingredient.id !== ingredientId
     );
-    setMoreIngredients(newIngredients);
+    setIngredients(newIngredients);
   };
+
+  useEffect(() => {
+    console.log(ingredients);
+  }, [ingredients]);
 
   return (
     <div>
@@ -100,11 +96,18 @@ const AddRecipes = () => {
             id="name"
             name="name"
             defaultValue={recipes.name}
+            // onChange={inputHandler}
           />
         </div>
         <div>
           <label htmlFor="author">Author</label>
-          <input type="text" id="author" name="author" />
+          <input
+            className="text-input"
+            type="text"
+            id="author"
+            name="author"
+            // onChange={inputHandler}
+          />
         </div>
         <div>
           <label htmlFor="country">Recipe is from</label>
@@ -113,7 +116,7 @@ const AddRecipes = () => {
             id="country"
             name="country"
             defaultValue={recipes.country}
-            onChange={inputHandler}
+            // onChange={inputHandler}
           />
         </div>
         <div>
@@ -123,6 +126,7 @@ const AddRecipes = () => {
             id="description"
             name="description"
             defaultValue={recipes.description}
+            // onChange={inputHandler}
           />
         </div>
         <div>
@@ -132,21 +136,27 @@ const AddRecipes = () => {
             id="image"
             name="image"
             defaultValue={recipes.image}
+            // onChange={inputHandler}
           />
         </div>
         <div>
           <label>Ingredients</label>
-          {moreIngredients.map((ingredient, index) => {
+          {ingredients.map((ingredient) => {
             return (
               <AddIngredients
-                key={`${ingredient.value} `}
+                key={`${ingredient.id} `}
                 remove={removeIngredientsHandler}
-                ingredientId={ingredient.value}
-                idHandler={() => idHandler(index)}
+                ingredientId={ingredient.id}
+                idHandler={() => idHandler(ingredient.id)}
+                // inputHandler={inputHandler}
+                // onChange={inputHandler}
               />
             );
           })}
-          <button onClick={addIngredientsHandler}> Add more ingredients</button>
+          <button type="button" onClick={addIngredientsHandler}>
+            {" "}
+            Add more ingredients
+          </button>
         </div>
         <div>
           <label htmlFor="instructions">Instructions</label>
@@ -154,6 +164,7 @@ const AddRecipes = () => {
             id="instructions"
             name="instructions"
             defaultValue={recipes.instructions}
+            // onChange={inputHandler}
           />
         </div>
         <button type="submit">SUBMIT</button>
