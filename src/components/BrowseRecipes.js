@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import RecipesCard from "./RecipesCard";
+import classes from "./BrowseRecipes.module.css";
 
 const BrowseRecipes = () => {
   const [recipesLists, setRecipesLists] = useState("");
@@ -16,23 +17,27 @@ const BrowseRecipes = () => {
   const searchHandler = (e) => {
     const searchTerm = e.target.value;
     if (searchTerm !== "") {
-      const nameList = recipesLists.filter(
-        (list) => list.recipes.name ? list.recipes.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 : ""
+      const nameList = recipesLists.filter((list) =>
+        list.name
+          ? list.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+          : ""
       );
       setFilterResults(nameList);
     } else {
-      setFilterResults(recipesLists)
+      setFilterResults(recipesLists);
     }
   };
   return (
-    <>
+    <div className={`${classes["browse-recipes-container"]}`}>
       <input onChange={searchHandler} />
+      <h1>Our Recipes</h1>
       <div className="recipes-cards">
-        {filterResults && filterResults.map((recipesList) => (
-            <RecipesCard key={recipesList.id} {...recipesList.recipes} />
+        {filterResults &&
+          filterResults.map((recipesList) => (
+            <RecipesCard key={recipesList.id} {...recipesList} />
           ))}
       </div>
-    </>
+    </div>
   );
 };
 

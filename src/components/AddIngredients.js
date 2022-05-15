@@ -1,6 +1,12 @@
 import React from "react";
 
-const AddIngredients = ({ remove, ingredientId, inputHandler, idHandler }) => {
+const AddIngredients = ({
+  ingredient,
+  remove,
+  ingredientId,
+  inputHandler,
+  idHandler,
+}) => {
   return (
     <div>
       <p>{ingredientId}</p>
@@ -9,6 +15,8 @@ const AddIngredients = ({ remove, ingredientId, inputHandler, idHandler }) => {
         type="text"
         id="quantity"
         name="quantity"
+        defaultValue={ingredient.quantity}
+        onChange={inputHandler}
         // onChange={() => {
         //   idHandler(ingredientId);
         // }}
@@ -18,6 +26,8 @@ const AddIngredients = ({ remove, ingredientId, inputHandler, idHandler }) => {
         type="text"
         id="unit"
         name="unit"
+        onChange={inputHandler}
+        defaultValue={ingredient.unit}
         // onChange={() => {
         //   idHandler(ingredientId);
         // }}
@@ -27,6 +37,8 @@ const AddIngredients = ({ remove, ingredientId, inputHandler, idHandler }) => {
         type="text"
         id="ingredient"
         name="ingredient"
+        onChange={inputHandler}
+        defaultValue={ingredient.ingredient}
         // onChange={() => {
         //   idHandler(ingredientId);
         // }}

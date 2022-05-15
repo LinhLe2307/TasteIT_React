@@ -1,0 +1,30 @@
+.recipes-wrapper {
+  position: relative;
+  padding: 2rem;
+}
+
+.recipes-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.flags,
+.flags img {
+  border-radius: 50%;
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+.flags {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.flags img {
+  object-fit: cover;
+}
+
+.recipes-card img {
+  width: 20rem;
+}

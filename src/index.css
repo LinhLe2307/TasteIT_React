@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Raleway&display=swap");
 
 * {
   margin: 0;
@@ -7,18 +7,12 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 header {
   height: 4rem;
   background-color: bisque;
-}
-
-
-.recipes-info {
-  height: 60vh;
-  flex-direction: column;
 }
 
 #myVideo {
@@ -35,31 +29,28 @@ header {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+.recipes-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
 
 .selection {
   border: 1px solid black;
   padding: 1rem;
 }
 
-.recipes-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.recipes-card {
-  border: 1px solid black
-}
-
-.recipes-card img {
-  width: 20rem;
-}
-
 .recipes-info {
+  height: 60vh;
+  flex-direction: column;
+}
+
+/* .recipes-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-}
-
+} */
+/* 
 .recipes-info img {
   width: 100%;
-}
+} */

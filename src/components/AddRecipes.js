@@ -6,6 +6,8 @@ import classes from "./AddRecipes.module.css";
 
 const AddRecipes = () => {
   const [ingredientsValue, setIngredientsValue] = useState(0);
+  const [countries, setCountries] = useState();
+  const [selectCountry, setSelectCountry] = useState("");
 
   const [ingredients, setIngredients] = useState([
     {
@@ -23,29 +25,37 @@ const AddRecipes = () => {
     description: "",
     image: "",
     instructions: "",
-    ingredients: ingredients,
+    ingredients: [],
   });
 
   const [id, setId] = useState();
-
-  const idHandler = (id) => {
-    setId(id);
-  };
 
   const inputHandler = (e) => {
     setRecipes(() => ({
       ...recipes,
       [e.target.name]: e.target.value,
+      country: selectCountry,
+      ingredients: ingredients,
     }));
 
     const newIngredients = [...ingredients];
-    const list = newIngredients.map((newIngredient) => {
-      // if (newIngredient.id === id)
-      return {
-        ...newIngredient,
-        [e.target.name]: e.target.value,
-      };
-    });
+    const list = [];
+    for (let i = 0; i < newIngredients.length; i++) {
+      if (id === i.id) {
+        return list.push({
+          ...i,
+          [e.target.name]: e.target.value,
+        });
+      }
+    }
+
+    // const list = newIngredients.map((newIngredient) => {
+    //   // if (id === newIngredient.id)
+    //   return {
+    //     ...newIngredient,
+    //     [e.target.name]: e.target.value,
+    //   };
+    // });
     setIngredients(list);
   };
 
@@ -81,9 +91,17 @@ const AddRecipes = () => {
     setIngredients(newIngredients);
   };
 
+  const handleChange = (e) => {
+    setSelectCountry(e.target.value);
+  };
+
   useEffect(() => {
-    console.log(ingredients);
-  }, [ingredients]);
+    axios
+      .get("https://restcountries.com/v3.1/all")
+      .then((res) => res.data)
+      .then((res) => setCountries(res.map((data) => data.name.common)))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div>
@@ -111,13 +129,22 @@ const AddRecipes = () => {
         </div>
         <div>
           <label htmlFor="country">Recipe is from</label>
-          <input
+          {/* <input
             type="text"
             id="country"
             name="country"
             defaultValue={recipes.country}
             // onChange={inputHandler}
-          />
+          /> */}
+
+          <select defaultValue={selectCountry} onChange={handleChange}>
+            {countries &&
+              countries.map((country) => (
+                <option key={country} defaultValue={country}>
+                  {country}
+                </option>
+              ))}
+          </select>
         </div>
         <div>
           <label htmlFor="description">Description</label>
@@ -147,7 +174,8 @@ const AddRecipes = () => {
                 key={`${ingredient.id} `}
                 remove={removeIngredientsHandler}
                 ingredientId={ingredient.id}
-                idHandler={() => idHandler(ingredient.id)}
+                onChange={() => setId(ingredient.id)}
+                ingredient={ingredient}
                 // inputHandler={inputHandler}
                 // onChange={inputHandler}
               />
