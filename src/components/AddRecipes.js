@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 
-import Button from "./Button";
 import AddIngredients from "./AddIngredients";
 
 const AddRecipes = () => {
@@ -21,7 +20,11 @@ const AddRecipes = () => {
     },
   ]);
 
-  const [moreIngredients, setMoreIngredients] = useState([{ value: null }]);
+  const [ingredientsValue, setIngredientsValue] = useState(0);
+
+  const [moreIngredients, setMoreIngredients] = useState([
+    { value: ingredientsValue },
+  ]);
 
   const [id, setId] = useState();
 
@@ -63,7 +66,10 @@ const AddRecipes = () => {
 
   const addIngredientsHandler = () => {
     const values = [...moreIngredients];
-    values.push({ value: null });
+
+    setIngredientsValue((prevState) => prevState + 1);
+
+    ingredientsValue && values.push({ value: ingredientsValue });
     setMoreIngredients(values);
 
     const values2 = [...ingredients];
@@ -77,20 +83,11 @@ const AddRecipes = () => {
   };
 
   const removeIngredientsHandler = (ingredientId) => {
-    const values = [...moreIngredients];
-    console.log("remove", ingredientId);
-
-    console.log("more", values.splice(id, 1));
-
-    // const values = moreIngredients.filter(
-    //   (ingredient, index) => index !== ingredientId
-    // );
-    setMoreIngredients(values);
+    const newIngredients = moreIngredients.filter(
+      (ingredient) => ingredient.value !== ingredientId
+    );
+    setMoreIngredients(newIngredients);
   };
-
-  useEffect(() => {
-    console.log(moreIngredients);
-  }, [moreIngredients]);
 
   return (
     <div>
@@ -142,14 +139,14 @@ const AddRecipes = () => {
           {moreIngredients.map((ingredient, index) => {
             return (
               <AddIngredients
-                key={`${ingredient} - ${index} `}
+                key={`${ingredient.value} `}
                 remove={removeIngredientsHandler}
-                ingredientId={index}
+                ingredientId={ingredient.value}
                 idHandler={() => idHandler(index)}
               />
             );
           })}
-          <button onClick={addIngredientsHandler}>Add more ingredients</button>
+          <button onClick={addIngredientsHandler}> Add more ingredients</button>
         </div>
         <div>
           <label htmlFor="instructions">Instructions</label>
