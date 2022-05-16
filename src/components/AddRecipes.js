@@ -4,6 +4,7 @@ import axios from "axios";
 import AddIngredients from "./AddIngredients";
 import classes from "./AddRecipes.module.css";
 
+const list = [];
 const AddRecipes = () => {
   const [ingredientsValue, setIngredientsValue] = useState(0);
   const [countries, setCountries] = useState();
@@ -39,7 +40,7 @@ const AddRecipes = () => {
     }));
 
     const newIngredients = [...ingredients];
-    const list = [];
+
     for (let i = 0; i < newIngredients.length; i++) {
       if (id === i.id) {
         return list.push({
@@ -174,7 +175,10 @@ const AddRecipes = () => {
                 key={`${ingredient.id} `}
                 remove={removeIngredientsHandler}
                 ingredientId={ingredient.id}
-                onChange={() => setId(ingredient.id)}
+                onChange={() => {
+                  setId(ingredient.id);
+                  inputHandler();
+                }}
                 ingredient={ingredient}
                 // inputHandler={inputHandler}
                 // onChange={inputHandler}

@@ -10,18 +10,30 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   height: 4rem;
   background-color: bisque;
 }
 
+a {
+  text-decoration: none;
+}
+
 #myVideo {
-  height: 100%;
+  height: 500px;
   width: 100%;
   float: left;
-  top: 0;
-  padding: none;
-  /* position: fixed; */
+  position: relative;
+  object-fit: cover;
+}
+
+.title {
+  margin: 0 auto;
 }
 
 .recipes-container {
@@ -43,6 +55,9 @@ header {
 .recipes-info {
   height: 60vh;
   flex-direction: column;
+  position: absolute;
+  top: 100px;
+  left: 100px;
 }
 
 /* .recipes-info {
