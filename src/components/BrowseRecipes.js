@@ -16,15 +16,15 @@ const BrowseRecipes = () => {
 
   const searchHandler = (e) => {
     const searchTerm = e.target.value;
-    if (searchTerm !== "") {
+    if (searchTerm == "") {
+      setFilterResults(recipesLists);
+    } else {
       const nameList = recipesLists.filter((list) =>
         list.name
           ? list.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
           : ""
       );
       setFilterResults(nameList);
-    } else {
-      setFilterResults(recipesLists);
     }
   };
   return (

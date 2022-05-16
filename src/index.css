@@ -30,10 +30,11 @@ a {
   float: left;
   position: relative;
   object-fit: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 }
 
 .title {
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 .recipes-container {
@@ -58,6 +59,10 @@ a {
   position: absolute;
   top: 100px;
   left: 100px;
+}
+
+.recipes-info img {
+  width: 20rem;
 }
 
 /* .recipes-info {

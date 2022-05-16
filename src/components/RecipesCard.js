@@ -5,7 +5,7 @@ import classes from "./RecipesCard.module.css";
 
 const RecipesCard = ({ id, image, name, country, description }) => {
   const [flags, setFlags] = useState();
-  // const [filterFlags, setFilterFlags] = useState();
+
   useEffect(() => {
     axios
       .get("https://restcountries.com/v3.1/all")
@@ -17,11 +17,6 @@ const RecipesCard = ({ id, image, name, country, description }) => {
       )
       .catch((err) => console.error(err));
   }, []);
-
-  // const filterHandler = () => {
-  //   const values = flags.filter((flag) => flag.name === country);
-  //   setFilterFlags(values);
-  // };
 
   return (
     <div className={`${classes["recipes-wrapper"]}`}>

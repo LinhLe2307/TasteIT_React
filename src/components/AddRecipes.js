@@ -4,7 +4,6 @@ import axios from "axios";
 import AddIngredients from "./AddIngredients";
 import classes from "./AddRecipes.module.css";
 
-const list = [];
 const AddRecipes = () => {
   const [ingredientsValue, setIngredientsValue] = useState(0);
   const [countries, setCountries] = useState();
@@ -29,7 +28,11 @@ const AddRecipes = () => {
     ingredients: [],
   });
 
-  const [id, setId] = useState();
+  const changeIngreInput = (e, index) => {
+    const newIngreList = [...ingredients];
+    newIngreList[index][e.target.name] = e.target.value;
+    setIngredients(newIngreList);
+  };
 
   const inputHandler = (e) => {
     setRecipes(() => ({
@@ -38,26 +41,6 @@ const AddRecipes = () => {
       country: selectCountry,
       ingredients: ingredients,
     }));
-
-    const newIngredients = [...ingredients];
-
-    for (let i = 0; i < newIngredients.length; i++) {
-      if (id === i.id) {
-        return list.push({
-          ...i,
-          [e.target.name]: e.target.value,
-        });
-      }
-    }
-
-    // const list = newIngredients.map((newIngredient) => {
-    //   // if (id === newIngredient.id)
-    //   return {
-    //     ...newIngredient,
-    //     [e.target.name]: e.target.value,
-    //   };
-    // });
-    setIngredients(list);
   };
 
   const addSubmitHandler = (event) => {
@@ -68,6 +51,7 @@ const AddRecipes = () => {
       .catch((error) => console.log("error", error));
 
     setRecipes("");
+    setIngredientsValue("");
   };
 
   const addIngredientsHandler = () => {
@@ -115,29 +99,14 @@ const AddRecipes = () => {
             id="name"
             name="name"
             defaultValue={recipes.name}
-            // onChange={inputHandler}
           />
         </div>
         <div>
           <label htmlFor="author">Author</label>
-          <input
-            className="text-input"
-            type="text"
-            id="author"
-            name="author"
-            // onChange={inputHandler}
-          />
+          <input className="text-input" type="text" id="author" name="author" />
         </div>
         <div>
           <label htmlFor="country">Recipe is from</label>
-          {/* <input
-            type="text"
-            id="country"
-            name="country"
-            defaultValue={recipes.country}
-            // onChange={inputHandler}
-          /> */}
-
           <select defaultValue={selectCountry} onChange={handleChange}>
             {countries &&
               countries.map((country) => (
@@ -154,7 +123,6 @@ const AddRecipes = () => {
             id="description"
             name="description"
             defaultValue={recipes.description}
-            // onChange={inputHandler}
           />
         </div>
         <div>
@@ -164,24 +132,19 @@ const AddRecipes = () => {
             id="image"
             name="image"
             defaultValue={recipes.image}
-            // onChange={inputHandler}
           />
         </div>
         <div>
           <label>Ingredients</label>
-          {ingredients.map((ingredient) => {
+          {ingredients.map((ingredient, index) => {
             return (
               <AddIngredients
                 key={`${ingredient.id} `}
                 remove={removeIngredientsHandler}
                 ingredientId={ingredient.id}
-                onChange={() => {
-                  setId(ingredient.id);
-                  inputHandler();
-                }}
+                index={index}
+                changeIngreInput={changeIngreInput}
                 ingredient={ingredient}
-                // inputHandler={inputHandler}
-                // onChange={inputHandler}
               />
             );
           })}
@@ -196,7 +159,6 @@ const AddRecipes = () => {
             id="instructions"
             name="instructions"
             defaultValue={recipes.instructions}
-            // onChange={inputHandler}
           />
         </div>
         <button type="submit">SUBMIT</button>

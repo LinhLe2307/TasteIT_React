@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const RecipesInfo = ({ }) => {
+const RecipesInfo = ({}) => {
   const { id } = useParams();
   const [recipesSingle, setRecipesSingle] = useState();
   useEffect(() => {
@@ -18,7 +18,12 @@ const RecipesInfo = ({ }) => {
             <h1>{recipesSingle.name}</h1>
             <img src={recipesSingle.image} />
             <h3>Ingredients</h3>
-            
+            {recipesSingle.ingredients.map((ingredient) => (
+              <p>
+                {ingredient.quantity}
+                {ingredient.unit} - {ingredient.ingredient}
+              </p>
+            ))}
           </div>
           <div>
             <p>{recipesSingle.description}</p>
