@@ -1,0 +1,49 @@
+.myVideo {
+  height: 500px;
+  width: 100%;
+  /* float: left; */
+  position: relative;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.btn {
+  padding: 0.25rem;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid orange;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.title {
+  margin: 3rem auto;
+}
+
+.selection {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0 2rem;
+}
+.recipes-info {
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+}
+.recipes-single img {
+  width: 20rem;
+}

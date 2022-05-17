@@ -3,26 +3,28 @@ import { Link } from "react-router-dom";
 
 import CardInfo from "./CardInfo";
 import background from "../assets/videos/background.mp4";
+import classes from "./Home.module.css";
 
 const Main = () => {
   return (
     <main>
-      <div>
-        <video muted loop id="myVideo" controls="controls" autoplay="true">
+      <div className={`${classes["video-container"]}`}>
+        <video muted loop className={`${classes.myVideo}`} autoPlay={true}>
           <source src={background} type="video/mp4" />
         </video>
+        <div className={`${classes["recipes-info"]}`}>
+          <h1>TasteIT</h1>
+          <p>
+            TasteIT is recipe app which is made in REACT21K group React lessons
+          </p>
+          <button className={`${classes.btn}`}>
+            <Link to="/browse-recipes">Browse recipes</Link>
+          </button>
+        </div>
       </div>
-      <div className="recipes-info">
-        <h1>TasteIT</h1>
-        <p>
-          TasteIT is recipe app which is made in REACT21K group React lessons
-        </p>
-        <Link to="/browse-recipes">Browse recipes</Link>
-      </div>
-      {/* </video> */}
-      <h1 className="title">Looking for the recipes?</h1>
-      <div className="recipes-container">
-        <div className="selection">
+      <h1 className={`${classes.title}`}>Looking for the recipes?</h1>
+      <div className={`${classes["recipes-container"]}`}>
+        <div className={`${classes.selection}`}>
           <CardInfo
             name="Browse recipes"
             description="Find your favourites in this collection. You can search recipes based on name or country"
@@ -30,7 +32,7 @@ const Main = () => {
             linkURL="/browse-recipes"
           />
         </div>
-        <div className="selection">
+        <div className={`${classes.selection}`}>
           <CardInfo
             name="Add recipes"
             description="Recipes from your country is missing? No worries, add one!"
@@ -38,7 +40,7 @@ const Main = () => {
             linkURL="/add-recipes"
           />
         </div>
-        <div className="selection">
+        <div className={`${classes.selection}`}>
           <CardInfo
             name="Want to know more about our projects?"
             description="Visit our programme homepage"

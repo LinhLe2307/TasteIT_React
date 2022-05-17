@@ -8,6 +8,8 @@
 
 body {
   font-family: "Raleway", sans-serif;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 main {
@@ -18,59 +20,26 @@ main {
 header {
   height: 4rem;
   background-color: bisque;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+header h2 {
+  margin-left: 3rem;
 }
 
 a {
   text-decoration: none;
+  color: orange;
 }
 
-#myVideo {
-  height: 500px;
-  width: 100%;
-  float: left;
-  position: relative;
-  object-fit: cover;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+button {
+  font-family: inherit;
 }
 
-.title {
-  margin: 3rem auto;
-}
-
-.recipes-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
 .recipes-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
-
-.selection {
-  border: 1px solid black;
-  padding: 1rem;
-}
-
-.recipes-info {
-  height: 60vh;
-  flex-direction: column;
-  position: absolute;
-  top: 100px;
-  left: 100px;
-}
-
-.recipes-info img {
-  width: 20rem;
-}
-
-/* .recipes-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-} */
-/* 
-.recipes-info img {
-  width: 100%;
-} */

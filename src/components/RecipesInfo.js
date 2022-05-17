@@ -13,13 +13,13 @@ const RecipesInfo = ({}) => {
   return (
     <>
       {recipesSingle && (
-        <div className="recipes-info">
+        <div className="recipes-single">
           <div>
             <h1>{recipesSingle.name}</h1>
             <img src={recipesSingle.image} />
             <h3>Ingredients</h3>
             {recipesSingle.ingredients.map((ingredient) => (
-              <p>
+              <p key={ingredient.id}>
                 {ingredient.quantity}
                 {ingredient.unit} - {ingredient.ingredient}
               </p>

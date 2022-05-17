@@ -84,26 +84,35 @@ const AddRecipes = () => {
     axios
       .get("https://restcountries.com/v3.1/all")
       .then((res) => res.data)
-      .then((res) => setCountries(res.map((data) => data.name.common)))
+      .then((res) => setCountries(res.map((data) => data.name.common).sort()))
       .catch((err) => console.error(err));
   }, []);
 
   return (
     <div>
       <h1>Add New Recipe</h1>
-      <form onChange={inputHandler} onSubmit={addSubmitHandler}>
+      <form onSubmit={addSubmitHandler}>
         <div>
           <label htmlFor="name">Name</label>
           <input
+            required
             type="text"
             id="name"
             name="name"
             defaultValue={recipes.name}
+            onChange={inputHandler}
           />
         </div>
         <div>
           <label htmlFor="author">Author</label>
-          <input className="text-input" type="text" id="author" name="author" />
+          <input
+            className="text-input"
+            type="text"
+            id="author"
+            name="author"
+            required
+            onChange={inputHandler}
+          />
         </div>
         <div>
           <label htmlFor="country">Recipe is from</label>
@@ -119,19 +128,23 @@ const AddRecipes = () => {
         <div>
           <label htmlFor="description">Description</label>
           <textarea
+            required
             type="text"
             id="description"
             name="description"
             defaultValue={recipes.description}
+            onChange={inputHandler}
           />
         </div>
         <div>
           <label htmlFor="image">Image</label>
           <input
+            required
             type="text"
             id="image"
             name="image"
             defaultValue={recipes.image}
+            onChange={inputHandler}
           />
         </div>
         <div>
@@ -156,9 +169,11 @@ const AddRecipes = () => {
         <div>
           <label htmlFor="instructions">Instructions</label>
           <textarea
+            required
             id="instructions"
             name="instructions"
             defaultValue={recipes.instructions}
+            onChange={inputHandler}
           />
         </div>
         <button type="submit">SUBMIT</button>
