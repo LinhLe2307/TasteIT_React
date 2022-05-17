@@ -45,7 +45,7 @@ const Main = () => {
             name="Want to know more about our projects?"
             description="Visit our programme homepage"
             linkName="Business Helsinki College homepage"
-            linkURL="/about"
+            linkURL="/bc.fi/"
           />
         </div>
       </div>
