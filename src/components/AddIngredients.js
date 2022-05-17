@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./AddIngredients.module.css";
 
 const AddIngredients = ({
-  ingredient,
+  ingredientList,
   remove,
   ingredientId,
   changeIngreInput,
@@ -18,7 +18,7 @@ const AddIngredients = ({
         type="text"
         id="quantity"
         name="quantity"
-        defaultValue={ingredient.quantity}
+        defaultValue={ingredientList.quantity}
         onChange={(e) => changeIngreInput(e, index)}
       />
       <label htmlFor="unit">Unit</label>
@@ -29,7 +29,7 @@ const AddIngredients = ({
         id="unit"
         name="unit"
         onChange={(e) => changeIngreInput(e, index)}
-        defaultValue={ingredient.unit}
+        defaultValue={ingredientList.unit}
       />
       <label htmlFor="ingredient">Ingredient</label>
       <input
@@ -39,7 +39,7 @@ const AddIngredients = ({
         id="ingredient"
         name="ingredient"
         onChange={(e) => changeIngreInput(e, index)}
-        defaultValue={ingredient.ingredient}
+        defaultValue={ingredientList.ingredient}
       />
       <button onClick={() => remove(ingredientId)}>X</button>
     </div>

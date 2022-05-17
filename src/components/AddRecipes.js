@@ -5,10 +5,10 @@ import AddIngredients from "./AddIngredients";
 import classes from "./AddRecipes.module.css";
 
 const AddRecipes = () => {
+  // Add ingredients id so it will be unique
   const [ingredientsValue, setIngredientsValue] = useState(0);
-  const [countries, setCountries] = useState();
-  const [selectCountry, setSelectCountry] = useState("");
 
+  // Separated list of ingredients
   const [ingredients, setIngredients] = useState([
     {
       quantity: "",
@@ -17,6 +17,12 @@ const AddRecipes = () => {
       id: ingredientsValue,
     },
   ]);
+
+  // List of fetched countries
+  const [countries, setCountries] = useState();
+
+  // Everytime a country option is selected, it will be store in selectedCountry state
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const [recipes, setRecipes] = useState({
     name: "",
@@ -28,21 +34,24 @@ const AddRecipes = () => {
     ingredients: [],
   });
 
+  // Ingredients' inputs changing
   const changeIngreInput = (e, index) => {
     const newIngreList = [...ingredients];
     newIngreList[index][e.target.name] = e.target.value;
     setIngredients(newIngreList);
   };
 
+  // Input changing
   const inputHandler = (e) => {
     setRecipes(() => ({
       ...recipes,
       [e.target.name]: e.target.value,
-      country: selectCountry,
+      country: selectedCountry,
       ingredients: ingredients,
     }));
   };
 
+  // Submit the recipe
   const addSubmitHandler = (event) => {
     event.preventDefault();
     axios
@@ -54,6 +63,7 @@ const AddRecipes = () => {
     setIngredientsValue("");
   };
 
+  // Everytime a button is clicked, a new value is created
   const addIngredientsHandler = () => {
     setIngredientsValue((prevState) => prevState + 1);
 
@@ -68,6 +78,7 @@ const AddRecipes = () => {
     setIngredients(values);
   };
 
+  // Remove one list of ingredient from browser
   const removeIngredientsHandler = (ingredientId) => {
     const values = [...ingredients];
     const newIngredients = values.filter(
@@ -76,10 +87,12 @@ const AddRecipes = () => {
     setIngredients(newIngredients);
   };
 
+  // Store chosen country option in selectedCountry state
   const handleChange = (e) => {
-    setSelectCountry(e.target.value);
+    setSelectedCountry(e.target.value);
   };
 
+  // Fetch countries API and Store countries' array in countries state
   useEffect(() => {
     axios
       .get("https://restcountries.com/v3.1/all")
@@ -116,7 +129,7 @@ const AddRecipes = () => {
         </div>
         <div>
           <label htmlFor="country">Recipe is from</label>
-          <select defaultValue={selectCountry} onChange={handleChange}>
+          <select defaultValue={selectedCountry} onChange={handleChange}>
             {countries &&
               countries.map((country) => (
                 <option key={country} defaultValue={country}>
@@ -157,7 +170,7 @@ const AddRecipes = () => {
                 ingredientId={ingredient.id}
                 index={index}
                 changeIngreInput={changeIngreInput}
-                ingredient={ingredient}
+                ingredientList={ingredient}
               />
             );
           })}

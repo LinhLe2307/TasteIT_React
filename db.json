@@ -1,78 +1,21 @@
 {
   "notes": [
     {
-      "name": "Linh Le",
-      "author": "Linh Le",
-      "country": "Angola",
-      "description": "vbcvb",
-      "image": "https://images.pexels.com/photos/4397920/pexels-photo-4397920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "instructions": "xcvxc",
-      "ingredients": [
-        {
-          "quantity": "gfgf",
-          "unit": "23",
-          "ingredient": "cxcv",
-          "id": 0
-        },
-        {
-          "quantity": "gfgf",
-          "unit": "dl",
-          "ingredient": "cv",
-          "id": 1
-        }
-      ],
-      "": "Angola",
-      "quantity": "gfgf",
-      "unit": "dl",
-      "ingredient": "cv",
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
       "name": "Hello Word",
       "author": "Linh Le",
       "country": "Algeria",
-      "description": "xcv",
+      "description": "xvxc",
       "image": "https://images.pexels.com/photos/4397920/pexels-photo-4397920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "instructions": " cvbv",
+      "instructions": "vcbvcb",
       "ingredients": [
         {
-          "quantity": "vc ",
+          "quantity": "tr",
           "unit": "dl",
-          "ingredient": "tru",
-          "id": 0
-        }
-      ],
-      "": "Algeria",
-      "quantity": "vc ",
-      "unit": "dl",
-      "ingredient": "tru",
-      "id": 3
-    },
-    {
-      "name": "Linh Le 2307",
-      "author": "Linh Le",
-      "country": "Albania",
-      "description": "ff",
-      "image": "https://images.pexels.com/photos/4397920/pexels-photo-4397920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "instructions": "fgdfg",
-      "ingredients": [
-        {
-          "quantity": "tru",
-          "unit": "dl",
-          "ingredient": "tru",
-          "id": 0
-        },
-        {
-          "quantity": "gfgf",
-          "unit": "23",
           "ingredient": "cv",
-          "id": 1
+          "id": 0
         }
       ],
-      "id": 4
+      "id": 1
     }
   ]
 }
