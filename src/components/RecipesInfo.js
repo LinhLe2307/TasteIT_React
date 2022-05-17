@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import classes from "./RecipesInfo.module.css";
+
 const RecipesInfo = ({}) => {
   const { id } = useParams();
   const [recipesSingle, setRecipesSingle] = useState();
@@ -13,23 +15,34 @@ const RecipesInfo = ({}) => {
   return (
     <>
       {recipesSingle && (
-        <div className="recipes-single">
-          <div>
-            <h1>{recipesSingle.name}</h1>
-            <img src={recipesSingle.image} />
-            <h3>Ingredients</h3>
-            {recipesSingle.ingredients.map((ingredient) => (
-              <p key={ingredient.id}>
-                {ingredient.quantity}
-                {ingredient.unit} - {ingredient.ingredient}
-              </p>
-            ))}
-          </div>
-          <div>
-            <p>{recipesSingle.description}</p>
-            <p>{recipesSingle.author}</p>
-            <h3>Preparation</h3>
-            <p>{recipesSingle.instructions}</p>
+        <div className={`${classes["recipes-box"]}`}>
+          <h1>{recipesSingle.name}</h1>
+          <div className={`${classes["recipes-card"]}`}>
+            <div className={`${classes["recipes-info"]}`}>
+              <img src={recipesSingle.image} />
+              <div>
+                <p>{recipesSingle.description}</p>
+                <p>{recipesSingle.author}</p>
+              </div>
+            </div>
+            <div className={`${classes["recipes-single"]}`}>
+              <div>
+                <h3>Ingredients</h3>
+                {recipesSingle.ingredients.map((ingredient) => (
+                  <p
+                    key={ingredient.id}
+                    className={`${classes["recipes-ingredients"]}`}
+                  >
+                    {ingredient.quantity}
+                    {ingredient.unit} - {ingredient.ingredient}
+                  </p>
+                ))}
+              </div>
+              <div className={`${classes["recipes-preparation"]}`}>
+                <h3>Preparation</h3>
+                <p>{recipesSingle.instructions}</p>
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -26,9 +26,9 @@ const BrowseRecipes = () => {
   const searchHandler = (e) => {
     const searchTerm = e.target.value;
     if (searchTerm !== "") {
-      const nameList = recipesLists.filter(
-        (list) =>
-          list.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+      const nameList = recipesLists.filter((list) =>
+        // list.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+        list.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilterResults(nameList);
     } else {
@@ -36,19 +36,31 @@ const BrowseRecipes = () => {
     }
   };
 
+  const deleteHandler = (recipeId) => {
+    const nameList = recipesLists.filter(
+      (recipesList) => recipesList.id != recipeId
+    );
+    setFilterResults(nameList);
+
+    axios
+      .delete(`http://localhost:3010/notes/${recipeId}`)
+      .then((res) => console.log("success", res))
+      .catch((error) => console.log("error", error));
+  };
+
   return (
     <div className={`${classes["browse-recipes-container"]}`}>
-      <input onChange={searchHandler} />
+      <input onChange={searchHandler} placeholder="Search..." />
       <h1>Our Recipes</h1>
-      <div className="recipes-cards">
-        {filterResults &&
-          filterResults.map((filterResult) => (
-            <RecipesCard
-              key={filterResult.id}
-              {...filterResult}
-              imgURL={flagsList[filterResult.country]}
-            />
-          ))}
+      <div className={`${classes["recipes-cards"]}`}>
+        {filterResults.map((filterResult) => (
+          <RecipesCard
+            key={filterResult.id}
+            {...filterResult}
+            flagURL={flagsList[filterResult.country]}
+            deleteHandler={deleteHandler}
+          />
+        ))}
       </div>
     </div>
   );

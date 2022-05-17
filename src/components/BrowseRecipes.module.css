@@ -12,3 +12,9 @@ input {
   align-items: center;
   flex-direction: column;
 }
+
+.recipes-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}

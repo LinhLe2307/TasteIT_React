@@ -1,0 +1,40 @@
+.recipes-info,
+.recipes-preparation,
+.recipes-single,
+.recipes-info div {
+  display: flex;
+}
+
+.recipes-box {
+  margin: 0 auto;
+  min-width: 40rem;
+}
+
+.recipes-card {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipes-info {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recipes-info img {
+  width: 30rem;
+}
+.recipes-info div,
+.recipes-preparation {
+  flex-direction: column;
+}
+
+.recipes-single {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recipes-ingredients {
+  border: 1px solid black;
+  width: 30rem;
+}

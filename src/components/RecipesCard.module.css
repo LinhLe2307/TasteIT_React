@@ -1,6 +1,6 @@
 .recipes-wrapper {
   position: relative;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .recipes-cards {
@@ -10,9 +10,9 @@
 
 .flags,
 .flags img {
-  border-radius: 50%;
-  width: 4rem !important;
-  height: 4rem !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 50% !important;
 }
 
 .flags {
@@ -26,5 +26,22 @@
 }
 
 .recipes-card img {
-  width: 20rem;
+  width: 15rem;
+  border-radius: 5px 5px 0 0;
+}
+
+.recipes-text {
+  border: 1px solid grey;
+  width: 15rem;
+  overflow-wrap: break-word;
+  padding: 1rem;
+  line-height: 1.5rem;
+  border-radius: 0 0 5px 5px;
+}
+
+.author {
+  margin: 0.5rem 0;
+}
+span {
+  font-style: italic;
 }

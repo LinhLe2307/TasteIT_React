@@ -1,38 +1,21 @@
 {
   "notes": [
     {
-      "name": "Hello Word",
-      "author": "Linh Le",
-      "country": "Algeria",
-      "description": "xvxc",
-      "image": "https://images.pexels.com/photos/4397920/pexels-photo-4397920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "instructions": "vcbvcb",
-      "ingredients": [
-        {
-          "quantity": "tr",
-          "unit": "dl",
-          "ingredient": "cv",
-          "id": 0
-        }
-      ],
-      "id": 1
-    },
-    {
       "name": "Linh Le",
       "author": "Linh Le",
       "country": "Andorra",
-      "description": "cvbvb",
+      "description": "v vc",
       "image": "https://images.pexels.com/photos/4397920/pexels-photo-4397920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      "instructions": "dfgdbf",
+      "instructions": "b cvbcvbc",
       "ingredients": [
         {
-          "quantity": "vc ",
+          "quantity": "gfgf",
           "unit": "dl",
           "ingredient": "cxcv",
           "id": 0
         }
       ],
-      "id": 2
+      "id": 1
     }
   ]
 }
