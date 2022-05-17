@@ -10,7 +10,7 @@ Then, run the following command: <code>npm start</code> to start the server
 
 # Tech stack
 
-HTML
-CSS
-Javascript
-React
+HTML</br>
+CSS</br>
+Javascript</br>
+React</br>
