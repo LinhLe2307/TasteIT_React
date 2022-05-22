@@ -20,7 +20,7 @@ function App() {
             element={<RecipesInfo />}
           />
           <Route path="/add-recipes" element={<AddRecipes />} />
-          <Route path="/about" element={<MoreAboutUs />} />
+          {/* <Route path="/about" element={<MoreAboutUs />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

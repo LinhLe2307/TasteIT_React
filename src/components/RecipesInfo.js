@@ -7,11 +7,21 @@ import classes from "./RecipesInfo.module.css";
 const RecipesInfo = ({}) => {
   const { id } = useParams();
   const [recipesSingle, setRecipesSingle] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`http://localhost:3010/notes/${id}`)
-      .then((res) => setRecipesSingle(res.data));
+      .then((res) => {
+        setRecipesSingle(res.data);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <>
       {recipesSingle && (

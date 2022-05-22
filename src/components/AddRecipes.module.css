@@ -21,17 +21,52 @@ select {
 }
 
 input[type="text"] {
-    padding: 0.5rem;
-    height: 2rem;
+  padding: 0.5rem;
+  height: 2rem;
 }
 
 textarea {
-    padding: 0.5rem;
-    height: 5rem;
+  padding: 0.5rem;
+  height: 5rem;
 }
 
 select {
-    height: 2rem;
-    padding: 0 0.5rem;
+  height: 2rem;
+  padding: 0 0.5rem;
   font-family: inherit;
+}
+
+.ingredients {
+  margin-bottom: 0.5rem;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 2rem;
+  width: 40%;
+  height: 25%;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* background-color: transparent; */
 }

@@ -10,7 +10,6 @@ const AddIngredients = ({
 }) => {
   return (
     <div className={`${classes["ingre-container"]}`}>
-      <p>{index}</p>
       <label htmlFor="quantity">Quantity</label>
       <input
         required

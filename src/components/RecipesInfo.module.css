@@ -10,6 +10,10 @@
   min-width: 40rem;
 }
 
+.recipes-box h1 {
+  margin: 1rem 0;
+}
+
 .recipes-card {
   flex-direction: row;
   justify-content: center;
@@ -23,6 +27,7 @@
 
 .recipes-info img {
   width: 30rem;
+  margin-bottom: 1rem;
 }
 .recipes-info div,
 .recipes-preparation {
@@ -36,5 +41,5 @@
 
 .recipes-ingredients {
   border: 1px solid black;
-  width: 30rem;
+  padding: 0 0.5rem;
 }

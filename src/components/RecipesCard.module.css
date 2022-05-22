@@ -45,3 +45,8 @@
 span {
   font-style: italic;
 }
+
+.link {
+  display: flex;
+  justify-content: space-between;
+}

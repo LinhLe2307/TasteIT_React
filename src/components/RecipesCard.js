@@ -27,8 +27,10 @@ const RecipesCard = ({
           <p>{description}</p>
           {/* This is different from <Link to={`/${id}`}> which is creating a new Url*/}
           {/* This below will be a child of browse-recipes */}
-          <Link to={`${id}`}>See more</Link>
-          <button onClick={() => deleteHandler(id)}>Delete</button>
+          <div className={`${classes.link}`}>
+            <Link to={`${id}`}>See more</Link>
+            <button onClick={() => deleteHandler(id)}>Delete</button>
+          </div>
         </div>
       </div>
     </div>
