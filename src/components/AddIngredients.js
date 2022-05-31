@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./AddIngredients.module.css";
+import classes from "./module/AddIngredients.module.css";
 
 const AddIngredients = ({
   ingredientList,

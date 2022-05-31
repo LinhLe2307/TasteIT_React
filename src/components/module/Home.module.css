@@ -16,15 +16,20 @@
 
 .btn:hover {
   transform: scale(1.1);
+  background-color: orange;
+}
+.btn:hover a {
+  color: white;
 }
 
 .title {
-  margin: 3rem auto;
+  margin: 2rem auto;
 }
 
 .selection {
   border: 1px solid black;
   padding: 1rem;
+  line-height: 1.5rem;
 }
 
 .recipes-container {

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import RecipesCard from "./RecipesCard";
-import classes from "./BrowseRecipes.module.css";
+import classes from "./module/BrowseRecipes.module.css";
 
 const BrowseRecipes = () => {
-  const [recipesLists, setRecipesLists] = useState();
-  const [filterResults, setFilterResults] = useState();
+  const [recipesLists, setRecipesLists] = useState([]);
+  const [filterResults, setFilterResults] = useState([]);
   const [flagsList, setFlagsList] = useState({});
   const [inputSearch, setInputSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +14,7 @@ const BrowseRecipes = () => {
     axios
       .get("http://localhost:3010/notes")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setFilterResults(res.data);
         setRecipesLists(res.data);
       })
@@ -52,11 +52,13 @@ const BrowseRecipes = () => {
   };
 
   const deleteHandler = (recipeId) => {
-    axios
-      .delete(`http://localhost:3010/notes/${recipeId}`)
-      .then((res) => console.log("success", res))
-      .then((res) => fetchRecipes())
-      .catch((error) => console.log("error", error));
+    if (window.confirm("Are you sure you want to delete?")) {
+      axios
+        .delete(`http://localhost:3010/notes/${recipeId}`)
+        .then((res) => console.log("success", res))
+        .then((res) => fetchRecipes())
+        .catch((error) => console.log("error", error));
+    }
   };
 
   if (isLoading) {
@@ -82,6 +84,9 @@ const BrowseRecipes = () => {
             />
           ))}
       </div>
+      {recipesLists.length === 0 && (
+        <h3 style={{ margin: "0 auto" }}>Please add your recipes!</h3>
+      )}
     </div>
   );
 };

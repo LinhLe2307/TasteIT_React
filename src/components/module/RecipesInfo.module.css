@@ -7,11 +7,12 @@
 
 .recipes-box {
   margin: 0 auto;
-  min-width: 40rem;
+  max-width: 75rem;
+  line-height: 1.5rem;
 }
 
 .recipes-box h1 {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .recipes-card {
@@ -32,6 +33,11 @@
 .recipes-info div,
 .recipes-preparation {
   flex-direction: column;
+}
+
+.recipes-text {
+  margin-left: 2rem;
+  /* max-width: 30rem; */
 }
 
 .recipes-single {

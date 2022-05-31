@@ -10,5 +10,5 @@ label {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-top: 0.5rem;
 }
-

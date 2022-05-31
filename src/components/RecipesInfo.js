@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import classes from "./RecipesInfo.module.css";
+import classes from "./module/RecipesInfo.module.css";
 
 const RecipesInfo = ({}) => {
   const { id } = useParams();
@@ -11,12 +11,10 @@ const RecipesInfo = ({}) => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get(`http://localhost:3010/notes/${id}`)
-      .then((res) => {
-        setRecipesSingle(res.data);
-        setIsLoading(false);
-      });
+    axios.get(`http://localhost:3010/notes/${id}`).then((res) => {
+      setRecipesSingle(res.data);
+      setIsLoading(false);
+    });
   }, []);
 
   if (isLoading) {
@@ -30,9 +28,10 @@ const RecipesInfo = ({}) => {
           <div className={`${classes["recipes-card"]}`}>
             <div className={`${classes["recipes-info"]}`}>
               <img src={recipesSingle.image} />
-              <div>
+
+              <div className={`${classes["recipes-text"]}`}>
                 <p>{recipesSingle.description}</p>
-                <p>{recipesSingle.author}</p>
+                <p style={{ fontStyle: "italic" }}>by {recipesSingle.author}</p>
               </div>
             </div>
             <div className={`${classes["recipes-single"]}`}>

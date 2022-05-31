@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import background from "../assets/videos/background.mp4";
-import classes from "./Home.module.css";
+import classes from "./module/Home.module.css";
 
 const Main = () => {
   return (

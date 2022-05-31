@@ -25,22 +25,36 @@
   object-fit: cover;
 }
 
+.recipes-card {
+  border: 1px solid grey;
+  border-radius: 5px;
+  min-height: 100%;
+  /* position: relative; */
+}
+
 .recipes-card img {
   width: 15rem;
   border-radius: 5px 5px 0 0;
 }
 
 .recipes-text {
-  border: 1px solid grey;
   width: 15rem;
-  overflow-wrap: break-word;
   padding: 1rem;
+  padding-bottom: 2.5rem;
   line-height: 1.5rem;
-  border-radius: 0 0 5px 5px;
 }
 
+.description {
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .author {
   margin: 0.5rem 0;
+  /* line-height: 1.5rem; */
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
 }
 span {
   font-style: italic;
@@ -49,4 +63,16 @@ span {
 .link {
   display: flex;
   justify-content: space-between;
+}
+
+.link-more {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.btn-delete {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
 }

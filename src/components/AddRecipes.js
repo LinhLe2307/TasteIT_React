@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 
 import AddIngredients from "./AddIngredients";
-import classes from "./AddRecipes.module.css";
+import classes from "./module/AddRecipes.module.css";
 
 const AddRecipes = () => {
   // Add ingredients id so it will be unique
@@ -84,11 +84,13 @@ const AddRecipes = () => {
 
   // Remove one list of ingredient from browser
   const removeIngredientsHandler = (ingredientId) => {
-    const values = [...ingredients];
-    const newIngredients = values.filter(
-      (ingredient) => ingredient.id !== ingredientId
-    );
-    setIngredients(newIngredients);
+    if (window.confirm("Are you sure you want to remove?")) {
+      const values = [...ingredients];
+      const newIngredients = values.filter(
+        (ingredient) => ingredient.id !== ingredientId
+      );
+      setIngredients(newIngredients);
+    }
   };
 
   // Store chosen country option in selectedCountry state
@@ -121,7 +123,7 @@ const AddRecipes = () => {
     <div>
       {/* {!isSubmitted && (
         <> */}
-      <h1>Add New Recipe</h1>
+      <h1 className={`${classes["new-recipe"]}`}>Add New Recipe</h1>
       <form onSubmit={addSubmitHandler}>
         <div>
           <label htmlFor="name">Name</label>

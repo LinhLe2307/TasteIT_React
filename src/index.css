@@ -18,12 +18,16 @@ main {
 }
 
 header {
-  height: 4rem;
+  height: 6rem;
   background-color: bisque;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 nav {
@@ -48,4 +52,8 @@ button {
 
 button:hover {
   transform: scale(1.1);
+}
+
+.nav-link {
+  color: black;
 }

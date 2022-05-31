@@ -70,3 +70,8 @@ select {
   right: 0;
   /* background-color: transparent; */
 }
+
+.new-recipe {
+  text-align: center;
+  margin: 2rem 0;
+}
