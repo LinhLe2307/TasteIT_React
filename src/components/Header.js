@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <h2>
         <Link to="/" className="nav-link">
-          TasteIT
+          TasteIT App
         </Link>
       </h2>
       <nav>
