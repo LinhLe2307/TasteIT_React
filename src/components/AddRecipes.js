@@ -19,7 +19,7 @@ const AddRecipes = () => {
   ]);
 
   // List of fetched countries
-  const [countries, setCountries] = useState();
+  const [countries, setCountries] = useState([]);
 
   // Everytime a country option is selected, it will be store in selectedCountry state
   const [selectedCountry, setSelectedCountry] = useState("");

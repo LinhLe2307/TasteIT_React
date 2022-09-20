@@ -4,7 +4,7 @@ import axios from "axios";
 
 import classes from "./module/RecipesInfo.module.css";
 
-const RecipesInfo = ({}) => {
+const RecipesInfo = () => {
   const { id } = useParams();
   const [recipesSingle, setRecipesSingle] = useState();
   const [isLoading, setIsLoading] = useState(false);

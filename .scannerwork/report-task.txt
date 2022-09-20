@@ -1,0 +1,6 @@
+projectKey=tast_it_react
+serverUrl=http://localhost:8889
+serverVersion=8.7.1.42226
+dashboardUrl=http://localhost:8889/dashboard?id=tast_it_react
+ceTaskId=AYNaTIw_je0FvXn8BEN9
+ceTaskUrl=http://localhost:8889/api/ce/task?id=AYNaTIw_je0FvXn8BEN9
