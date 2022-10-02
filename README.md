@@ -5,7 +5,8 @@ Then display all the recipes in the browsing page and see more details about it.
 
 # Steps to follow
 
-First do, <code>npm install</code> to install dependencies.</br>
+First do <code>npm install</code> to install dependencies.</br>
+Second, run <code>npm run server</code>.</br>
 Then, run the following command: <code>npm start</code> to start the server
 
 # Tech stack
