@@ -1,4 +1,4 @@
-[![CI](https://github.com/LinhLe2307/TasteIT_React/actions/workflows/main.yml/badge.svg)](https://github.com/LinhLe2307/TasteIT_React/actions/workflows/main.yml)
+[![CI/CD](https://github.com/LinhLe2307/TasteIT_React/actions/workflows/main.yml/badge.svg)](https://github.com/LinhLe2307/TasteIT_React/actions/workflows/main.yml)
 
 # React Food App
 
