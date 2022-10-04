@@ -1,3 +1,5 @@
+[![CI](https://github.com/LinhLe2307/TasteIT_React/actions/workflows/main.yml/badge.svg)](https://github.com/LinhLe2307/TasteIT_React/actions/workflows/main.yml)
+
 # React Food App
 
 This is a React Food app where users can create recipes from different countries with ingredients, descriptions and instructions.</br>
