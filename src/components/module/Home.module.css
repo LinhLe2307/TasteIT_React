@@ -41,13 +41,13 @@
 .recipes-info {
   position: absolute;
   top: 250px;
-  left: 100px;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   gap: 2rem;
+  margin-left: 4rem
 }
 .recipes-single img {
   width: 20rem;
