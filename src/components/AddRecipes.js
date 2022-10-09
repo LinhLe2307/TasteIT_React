@@ -58,8 +58,10 @@ const AddRecipes = () => {
   // Submit the recipe
   const addSubmitHandler = (event) => {
     event.preventDefault();
+    const devEnv = process.env.NODE_ENV !== "production";
+    const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
     axios
-      .post("http://localhost:3010/notes", recipes)
+      .post(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`, recipes)
       .then((res) => setIsSubmitted(true))
       .catch((error) => console.log("error", error));
   };

@@ -11,8 +11,10 @@ const BrowseRecipes = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchRecipes = () => {
+    const devEnv = process.env.NODE_ENV !== "production";
+    const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
     axios
-      .get("http://localhost:3010/notes")
+      .get(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`)
       .then((res) => {
         // console.log(res.data);
         setFilterResults(res.data);
@@ -53,8 +55,10 @@ const BrowseRecipes = () => {
 
   const deleteHandler = (recipeId) => {
     if (window.confirm("Are you sure you want to delete?")) {
+      const devEnv = process.env.NODE_ENV !== "production";
+      const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
       axios
-        .delete(`http://localhost:3010/notes/${recipeId}`)
+        .delete(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${recipeId}`)
         .then((res) => console.log("success", res))
         .then((res) => fetchRecipes())
         .catch((error) => console.log("error", error));

@@ -11,7 +11,9 @@ const RecipesInfo = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:3010/notes/${id}`).then((res) => {
+    const devEnv = process.env.NODE_ENV !== "production";
+    const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+    axios.get(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${id}`).then((res) => {
       setRecipesSingle(res.data);
       setIsLoading(false);
     });
