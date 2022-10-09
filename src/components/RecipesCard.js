@@ -1,7 +1,8 @@
-import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./module/RecipesCard.module.css";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const RecipesCard = ({
   id,
@@ -15,10 +16,11 @@ const RecipesCard = ({
   return (
     <div className={`${classes["recipes-wrapper"]}`}>
       <div className={`${classes["recipes-card"]}`}>
-        <div className={`${classes.flags}`}>
-          <img src={flagURL} />
-        </div>
-        <img src={`${image}`} />
+          <div className={`${classes.flags}`}>
+            <img src={flagURL} />
+          </div>
+        
+        <img className={`${classes["card-img"]}`} src={`${image}`} />
         <div className={`${classes["recipes-text"]}`}>
           <h3>
             <Link to={`${id}`} style={{ color: "black" }}>
@@ -29,8 +31,6 @@ const RecipesCard = ({
             by <span>{author}</span>
           </p>
           <p className={`${classes.description}`}>{description}</p>
-          {/* This is different from <Link to={`/${id}`}> which is creating a new Url*/}
-          {/* This below will be a child of browse-recipes */}
           <div className={`${classes.link}`}>
             <Link to={`${id}`} className={`${classes["link-more"]}`}>
               See more
@@ -43,6 +43,7 @@ const RecipesCard = ({
             </button>
           </div>
         </div>
+        
       </div>
     </div>
   );

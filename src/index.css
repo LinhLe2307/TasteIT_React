@@ -10,6 +10,7 @@ body {
   font-family: "Raleway", sans-serif;
   max-width: 1600px;
   margin: 0 auto;
+  background-color: #ecf0f3;
 }
 
 main {
@@ -19,7 +20,7 @@ main {
 
 header {
   height: 6rem;
-  background-color: bisque;
+  background-color: #268AFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,13 +39,17 @@ nav {
 
 a {
   text-decoration: none;
-  color: orange;
+  color: #405de6;
+}
+
+a:hover {
+  color: #FD9A28
 }
 
 button {
   font-family: inherit;
   padding: 0.5rem;
-  background-color: bisque;
+  /* background-color: bisque; */
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -55,5 +60,5 @@ button:hover {
 }
 
 .nav-link {
-  color: black;
+  color: white;
 }
