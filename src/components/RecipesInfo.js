@@ -17,7 +17,7 @@ const RecipesInfo = () => {
       setRecipesSingle(res.data);
       setIsLoading(false);
     });
-  }, []);
+  }, [id]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -29,7 +29,7 @@ const RecipesInfo = () => {
           <h1>{recipesSingle.name}</h1>
           <div className={`${classes["recipes-card"]}`}>
             <div className={`${classes["recipes-info"]}`}>
-              <img src={recipesSingle.image} />
+              <img src={recipesSingle.image} alt={recipesSingle.name}/>
 
               <div className={`${classes["recipes-text"]}`}>
                 <p>{recipesSingle.description}</p>

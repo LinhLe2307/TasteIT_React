@@ -59,7 +59,6 @@ const BrowseRecipes = () => {
       const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
       axios
         .delete(`${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${recipeId}`)
-        .then((res) => console.log("success", res))
         .then((res) => fetchRecipes())
         .catch((error) => console.log("error", error));
     }
