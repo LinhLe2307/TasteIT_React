@@ -8,17 +8,19 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "json-server": "^0.17.0",
+    "memfs": "^3.5.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "serverless-http": "^3.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "server": "json-server -p3010 --watch db.json",
     "start": "react-scripts start && node server.js",
-    "build": "react-scripts build",
+    "build": "run-p build:**",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
