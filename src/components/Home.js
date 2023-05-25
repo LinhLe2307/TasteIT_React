@@ -14,7 +14,7 @@ const Main = () => {
         <div className={`${classes["recipes-info"]}`}>
           <h1>TasteIT</h1>
           <p>
-            TasteIT is a recipe app which is made for different cultures!
+            TasteIT is a react food app where users can create recipes from different countries with ingredients, descriptions and instructions!
           </p>
           <button className={`${classes.btn}`}>
             <Link to="/browse-recipes">Browse recipes</Link>
