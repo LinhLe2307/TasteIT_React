@@ -14,7 +14,7 @@ const Main = () => {
         <div className={`${classes["recipes-info"]}`}>
           <h1>TasteIT</h1>
           <p>
-            TasteIT is recipe app which is made in REACT21K group React lessons
+            TasteIT is a recipe app which is made for different cultures!
           </p>
           <button className={`${classes.btn}`}>
             <Link to="/browse-recipes">Browse recipes</Link>
@@ -37,10 +37,10 @@ const Main = () => {
           <Link to="/add-recipes">Add recipes</Link>
         </div>
         <div className={`${classes.selection}`}>
-          <h3>Want to know more about our projects?</h3>
-          <p>Visit our programme homepage</p>
-          <a href="https://www.bc.fi/" target="_blank">
-            Business Helsinki College homepage
+          <h3>Want to know more about my projects?</h3>
+          <p>Visit my homepage</p>
+          <a href="https://linh-le-personal-portfolio.netlify.app/" target="_blank">
+            Linh Le personal portfolio
           </a>
         </div>
       </div>

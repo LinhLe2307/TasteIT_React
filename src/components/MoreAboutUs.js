@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const MoreAboutUs = () => {
     return (
         <>
-            <div>Helsinki Business College</div>
+            <div>Linh Le, a front-end web developer, lives in Helsinki, Finland</div>
         </>
     )
 }
