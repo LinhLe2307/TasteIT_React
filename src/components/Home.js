@@ -38,9 +38,8 @@ const Main = () => {
         </div>
         <div className={`${classes.selection}`}>
           <h3>Want to know more about my projects?</h3>
-          <p>Visit my homepage</p>
           <a href="https://linh-le-personal-portfolio.netlify.app/" target="_blank">
-            Linh Le personal portfolio
+          Visit my homepage
           </a>
         </div>
       </div>
